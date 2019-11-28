@@ -15,7 +15,7 @@ def call(Map pipelineParams) {
                 steps {
 	            script{
 			def bldtools = new buildUtils(steps)
-			bldtools.timedGradleBuild(${pipelineParams.tool}, "clean package -DskipTests=true")
+			bldtools.timedGradleBuild(pipelineParams.tool, "clean package -DskipTests=true")
 		    }
                 }
             }
