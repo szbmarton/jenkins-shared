@@ -1,3 +1,5 @@
+import src.org.demo.buildUtils.*
+
 def call(Map pipelineParams) {
 
     pipeline {
@@ -11,7 +13,10 @@ def call(Map pipelineParams) {
 
             stage('build') {
                 steps {
-                    echo "mvn clean package -DskipTests=true"
+	            script{
+			def bldtools = new buildUtils(steps)
+			bldtools.timedGradleBuild("maven", "clean package -DskipTests=true")
+		    }
                 }
             }
 
