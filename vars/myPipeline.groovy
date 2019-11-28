@@ -1,4 +1,4 @@
-import org.demo.buildUtils.*
+import org.demo.buildUtils
 
 def call(Map pipelineParams) {
 
